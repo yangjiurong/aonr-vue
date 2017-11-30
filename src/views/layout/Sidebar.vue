@@ -7,7 +7,7 @@
   background-color="#324157" 
   text-color="#fff" 
   active-text-color="#ffd04b"
-  :collapse="false">
+  :collapse="isCollapse">
     <el-menu-item index="4">
       <i class="el-icon-menu"></i>
       <span slot="title">导航二导航二</span>
@@ -70,14 +70,19 @@
       <i class="el-icon-setting"></i>
       <span slot="title">导航三</span>
     </el-menu-item>
+    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+      <el-radio-button :label="false">展开</el-radio-button>
+      <el-radio-button :label="true">收起</el-radio-button>
+    </el-radio-group>
   </el-menu>
+
 </template>
 <script>
 export default {
   name: 'Sidebar',
   data() {
     return {
-
+      isCollapse: false
     }
   },
   methods: {
@@ -93,5 +98,8 @@ export default {
 </script>
 <style>
 
-
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 250px;
+    min-height: 950px;
+  }
 </style>
