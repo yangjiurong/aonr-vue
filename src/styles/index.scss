@@ -1,4 +1,9 @@
-body,div,ul{margin:0px;padding:0px;border: none;}
+body,div,ul{
+  margin:0px;
+  padding:0px;
+  border: none;
+}
+
 .el-header{
   background-color: #B3C0D1;
   color: #333;
@@ -21,12 +26,10 @@ body,div,ul{margin:0px;padding:0px;border: none;}
 }
 
 .el-aside {
-  background-color: #D3DCE6;
-  color: #333;
   border: 0px;
   margin: 0;
   padding: 0;
-  line-height: 200px;
+  min-height: 950px;
 }
 
 .el-main {
