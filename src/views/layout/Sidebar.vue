@@ -7,7 +7,7 @@
   background-color="#324157" 
   text-color="#fff" 
   active-text-color="#ffd04b"
-  :collapse="isCollapse">
+  :collapse="SidebarCollapse">
     <el-menu-item index="4">
       <i class="el-icon-menu"></i>
       <span slot="title">导航二导航二</span>
@@ -70,19 +70,16 @@
       <i class="el-icon-setting"></i>
       <span slot="title">导航三</span>
     </el-menu-item>
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
   </el-menu>
 
 </template>
 <script>
+import bus from '@/components/Eventbus'
 export default {
   name: 'Sidebar',
   data() {
     return {
-      isCollapse: false
+      SidebarCollapse: false
     }
   },
   methods: {
@@ -92,7 +89,13 @@ export default {
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
-    }
+    },
+  mounted(){
+    var self=this
+    bus.$on('SidebarStatus',function(msg){
+      self.SidebarCollapse=msg
+    })
+  }
 }
 
 </script>

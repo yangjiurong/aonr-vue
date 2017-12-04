@@ -18,36 +18,31 @@
 <!--     <transition name="bounce">
               <i :class="liebiaoicon" style="font-size:30px;" @click="changeIcon"></i>
     </transition> -->
-    <i :class="liebiaoicon" style="font-size:30px;margin-top:5px;" @click="changeIcon"></i>
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
-    <button type="<button">123</button>
-    <el-button size="small">小型按钮</el-button>
+    <i class="iconfont" :class="liebiaoicon" tabindex="123" style="font-size:30px;" @click="SidebarCollapse"></i>
   </el-menu>
 </template>
 <script>
+import bus from '@/components/Eventbus'
 export default {
   name: 'Layout',
   data() {
     return {
 		activeIndex: '1',
     activeIndex2: '1',
-    isCollapse: true,
-    liebiaoicon: 'iconfont icon-liebiaoshouqi'
+    liebiaoicon: "icon-liebiaoshouqi"
     }
   },
   methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
       },
-      changeIcon(){
-        if (this.liebiaoicon == "iconfont icon-liebiaoshouqi"){
-          this.liebiaoicon = "iconfont icon-liebiaozhankai"
-          return this.liebiaoicon
+      SidebarCollapse(){
+        if (this.liebiaoicon == "icon-liebiaoshouqi"){
+          bus.$emit('SidebarStatus',true);
+          return this.liebiaoicon = "icon-liebiaozhankai"
         }
-        return this.liebiaoicon = "iconfont icon-liebiaoshouqi"
+        bus.$emit('SidebarStatus',false);
+        return this.liebiaoicon = "icon-liebiaoshouqi"
       }
     }
 }
