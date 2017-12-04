@@ -28,7 +28,7 @@ export const constantRouterMap = [
 	{
 		path: '*',
 		redirect: '/'
-	}
+	} 
 ]
 
 export default new Router({
