@@ -79,7 +79,8 @@ export default {
   name: 'Sidebar',
   data() {
     return {
-      SidebarCollapse: false
+      SidebarCollapse: false,
+      SidebarHeight:''
     }
   },
   methods: {
@@ -103,6 +104,6 @@ export default {
 
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 250px;
-    min-height: 950px;
+    min-height:100vh;
   }
 </style>
