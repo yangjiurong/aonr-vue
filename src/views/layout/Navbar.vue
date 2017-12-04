@@ -1,6 +1,6 @@
 <template>
   <el-menu 
-  :default-active="activeIndex2" 
+  :default-active="activeIndex" 
   class="el-menu-demo" 
   mode="horizontal" 
   @select="handleSelect" 
@@ -15,10 +15,11 @@
       <el-menu-item index="2-3">选项3</el-menu-item>
     </el-submenu>
     <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
-<!--     <transition name="bounce">
-              <i :class="liebiaoicon" style="font-size:30px;" @click="changeIcon"></i>
+    <span class="iconfont" :class="liebiaoicon" style="font-size:30px;outline: none;" @click="SidebarCollapse"></span>
+<!--     <transition name="fade">
+      <i v-if="show1" key="" class="iconfont icon-liebiaoshouqi" style="font-size:30px;outline: none;" @click="SidebarCollapse"></i>
+      <i v-if="show2" key="" class="iconfont icon-liebiaozhankai" style="font-size:30px;outline: none;" @click="SidebarCollapse"></i>
     </transition> -->
-    <i class="iconfont" :class="liebiaoicon" tabindex="123" style="font-size:30px;" @click="SidebarCollapse"></i>
   </el-menu>
 </template>
 <script>
@@ -28,7 +29,6 @@ export default {
   data() {
     return {
 		activeIndex: '1',
-    activeIndex2: '1',
     liebiaoicon: "icon-liebiaoshouqi"
     }
   },
@@ -49,22 +49,11 @@ export default {
 
 </script>
 <style>
-.bounce-enter-active {
-  animation: bounce-in .5s;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
 }
-.bounce-leave-active {
-  animation: bounce-in .5s ;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0
 }
 
 </style>
